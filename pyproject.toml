@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phase1-unit-conversion-toolkit"
+version = "0.1.0"
+description = "Offline command-line unit converter using Decimal precision"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{name = "Portfolio Project"}]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+unit-convert = "unit_converter.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "RUF022"]
